@@ -1,7 +1,8 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
+import cvPdf from '../assets/ORTIZ_CV.pdf';
 
-const CV_PATH = '../assets/ORTIZ_CV.pdf';
+const CV_PATH = cvPdf;
 
 function CV() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -40,7 +41,7 @@ function CV() {
   return (
     <div className="cv-root p-gutter" ref={containerRef}>
       <div className="cv-header">
-        <a href="/" className="cv-reveal cv-back">
+        <a href="/#hero" className="cv-reveal cv-back">
           &#8592; Back home
         </a>
 
