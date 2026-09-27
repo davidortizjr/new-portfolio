@@ -164,13 +164,12 @@ function App() {
               </span>
             </p>
             <p className="text-white">
-              <span> Download my </span>
+              <span> Check out my </span>
               <span className="text-red-500 underline">
-                <a href="/assets/david-ortiz-cv.pdf" target="_blank" rel="noopener noreferrer">
+                <a href="/cv">
                   CV
                 </a>
               </span>
-              <span> (PDF 248kb)</span>
             </p>
           </div>
         </div>

@@ -485,3 +485,105 @@ body {
 .site-footer a:hover {
   color: var(--bg-green);
 }
+/* ============================================================
+   CV page
+   ============================================================ */
+
+.cv-root {
+  min-height: 100svh;
+  background-color: var(--bg-black);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+}
+
+.cv-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  max-width: 40rem;
+}
+
+.cv-back {
+  color: #808080;
+  font-size: var(--text-fluid-sm);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.cv-back:hover {
+  color: var(--bg-green);
+}
+
+.cv-sub {
+  color: #808080;
+  font-size: var(--text-fluid-sm);
+}
+
+.cv-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.25rem;
+}
+
+.cv-btn-primary {
+  background-color: var(--bg-green);
+  color: var(--bg-black);
+  font-weight: 700;
+  font-size: var(--text-fluid-sm);
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: opacity 0.25s ease;
+}
+
+.cv-btn-primary:hover {
+  opacity: 0.85;
+}
+
+.cv-btn-ghost {
+  color: #ffffff;
+  font-size: var(--text-fluid-sm);
+  padding: 0.85rem 1.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  text-decoration: none;
+  transition: border-color 0.25s ease, color 0.25s ease;
+}
+
+.cv-btn-ghost:hover {
+  border-color: var(--bg-green);
+  color: var(--bg-green);
+}
+
+.cv-preview {
+  width: 100%;
+  max-width: 56rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cv-frame {
+  width: 100%;
+  height: 80vh;
+  min-height: 500px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 0.75rem;
+  background-color: #1a1a1a;
+}
+
+.cv-fallback-note {
+  color: #595959;
+  font-size: var(--text-fluid-sm);
+}
+
+.cv-fallback-note a {
+  color: var(--bg-green);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
