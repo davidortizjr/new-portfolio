@@ -14,15 +14,24 @@ gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   useEffect(() => {
-    gsap.to('.loading-screen',
-      {
-        y: '-100%',
-        duration: 1,
-        delay: 2,
-        ease: 'power4.inOut',
-      }
-    );
+    document.body.style.overflow = 'hidden';
+
+    const animation = gsap.to('.loading-screen', {
+      y: '-100%',
+      duration: 1,
+      delay: 2,
+      ease: 'power4.inOut',
+      onComplete: () => {
+        document.body.style.overflow = '';
+      },
+    });
+
+    return () => {
+      animation.kill();
+      document.body.style.overflow = '';
+    };
   }, []);
+
 
   useEffect(() => {
     gsap.fromTo(
