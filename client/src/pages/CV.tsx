@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import cvPdf from '../assets/ORTIZ_CV.pdf';
 
+
 const CV_PATH = cvPdf;
 
 function CV() {
