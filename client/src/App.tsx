@@ -1,9 +1,16 @@
 import { useEffect } from 'react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import './App.css'
 import LoadingScreen from './components/LoadingScreen'
+import ProjectsSection from './components/ProjectsSection'
+import AboutSection from './components/AboutSection'
+import ContactSection from './components/ContactSection'
+import Footer from './components/Footer'
 import pic from './assets/pic.jpg'
+
+gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   useEffect(() => {
@@ -80,6 +87,11 @@ function App() {
   }, []);
 
   useEffect(() => {
+    const refresh = setTimeout(() => ScrollTrigger.refresh(), 3200);
+    return () => clearTimeout(refresh);
+  }, []);
+
+  useEffect(() => {
     gsap.fromTo('.hero-links p',
       {
         opacity: 0,
@@ -99,7 +111,7 @@ function App() {
     <>
       <LoadingScreen />
 
-      <div className="hero-section w-full lg:min-h-svh grid lg:grid-cols-2">
+      <div className="hero-section w-full lg:min-h-svh grid lg:grid-cols-2" id="hero">
         <div className="w-full min-h-svh lg:min-h-auto p-gutter flex gap-10 flex-col items-start justify-between">
           <div>
             <p className="tag-projects flex items-center justify-start gap-2.5 pl-3 pr-4 py-1.5 rounded-xl bg-black text-12 text-white">
@@ -157,6 +169,11 @@ function App() {
           <img className="hero-pic size-full lg:absolute lg:inset-0 lg:object-cover" src={pic} alt="Profile Picture" />
         </div>
       </div>
+
+      <ProjectsSection />
+      <AboutSection />
+      <ContactSection />
+      <Footer />
     </>
   )
 }
