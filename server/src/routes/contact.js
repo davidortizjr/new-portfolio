@@ -24,6 +24,12 @@ router.post('/', async (req, res) => {
     return res.status(400).json({ error: 'Message is too long.' });
   }
 
+  if (!pool) {
+    return res.status(503).json({
+      error: 'The contact form is temporarily unavailable because the database is not configured.'
+    });
+  }
+
   try {
     await pool.query(
       'INSERT INTO contact_messages (name, email, message) VALUES ($1, $2, $3)',
