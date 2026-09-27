@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+/* fonts */
+@font-face {
+  font-family: 'SATOSHI';
+  src: url('./assets/fonts/SATOSHI-REGULAR.OTF') format('opentype');
+}
+
+:root {
+  /* colors */
+  --bg-grey: #1A1919;
+  --bg-green: #C1FFA5;
+  --bg-black: #0c0b0b;
+
+  /* text sizes */
+  --text-fluid-sm: clamp(0.875rem, 1.5vw, 1.125rem);
+  --text-fluid-base: clamp(1rem, 2vw, 1.25rem);
+  --text-fluid-lg: clamp(1.125rem, 2.5vw, 1.5rem);
+  --text-fluid-xl: clamp(1.25rem, 3vw, 1.875rem);
+  --text-fluid-2xl: clamp(1.5rem, 3.5vw, 2.25rem);
+  --text-fluid-3xl: clamp(1.875rem, 4vw, 2.625rem);
+  --text-fluid-4xl: clamp(2.25rem, 3.233vw + 1.413rem, 4rem);
+  --text-fluid-5xl: clamp(2.625rem, 5vw, 3.375rem);
+}
+
+/* colors */
+.bg-green {
+  background-color: var(--bg-green);
+}
+
+.bg-black {
+  background-color: var(--bg-black);
+}
+
+.bg-grey {
+  background-color: var(--bg-grey);
+}
+
+/* text sizing */
+.text-fluid-sm {
+  font-size: var(--text-fluid-sm);
+}
+
+.text-fluid-base {
+  font-size: var(--text-fluid-base);
+}
+
+.text-fluid-lg {
+  font-size: var(--text-fluid-lg);
+}
+
+.text-fluid-xl {
+  font-size: var(--text-fluid-xl);
+}
+
+.text-fluid-2xl {
+  font-size: var(--text-fluid-2xl);
+}
+
+.text-fluid-3xl {
+  font-size: var(--text-fluid-3xl);
+}
+
+.text-fluid-4xl {
+  font-size: var(--text-fluid-4xl);
+}
+
+.text-fluid-5xl {
+  font-size: var(--text-fluid-5xl);
+}
+
+.loading-screen {
+  background-color: var(--bg-black);
+}
+
+body {
+  font-family: 'SATOSHI', sans-serif;
+}
+
+.size-full {
+  width: 100%;
+}
+
+.p-gutter {
+  padding: 6rem 6rem 6rem 4rem;
+}
+
+.hero-section {
+  background-color: var(--bg-grey);
+}
+
+.hero-paragraph {
+  color: #808080;
+}
+
+@media (max-width: 768px) {
+  .p-gutter {
+    padding: 2rem;
+  }
+}
