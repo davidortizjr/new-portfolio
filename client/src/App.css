@@ -310,6 +310,59 @@ body {
   font-size: var(--text-fluid-sm);
 }
 
+.tools-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  padding-top: 0.15rem;
+}
+
+.tool-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: var(--bg-green);
+  border: 1px solid #343333;
+  border-radius: 0.5rem;
+  cursor: default;
+  transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
+}
+
+.tool-icon:hover,
+.tool-icon:focus-visible {
+  color: var(--bg-black);
+  background-color: var(--bg-green);
+  border-color: var(--bg-green);
+  outline: none;
+}
+
+.tool-tooltip {
+  position: absolute;
+  bottom: calc(100% + 0.55rem);
+  left: 50%;
+  z-index: 2;
+  padding: 0.35rem 0.55rem;
+  color: var(--bg-black);
+  background-color: var(--bg-green);
+  border-radius: 0.35rem;
+  font-size: 0.75rem;
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, 0.25rem);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.tool-icon:hover .tool-tooltip,
+.tool-icon:focus-visible .tool-tooltip {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
 @media (min-width: 1024px) {
   .about-grid {
     grid-template-columns: 1fr 1fr;
