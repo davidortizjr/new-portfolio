@@ -1,10 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { getCalApi } from '@calcom/embed-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
+
+// Cal.com booking link (username/event-slug). Can be overridden with
+// VITE_CAL_LINK in client/.env or Vercel's environment variables.
+const CAL_LINK =
+  (import.meta.env.VITE_CAL_LINK as string | undefined)?.trim() || 'david-ortiz/call';
 
 function ContactSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -35,6 +41,23 @@ function ContactSection() {
     }, sectionRef);
 
     return () => ctx.revert();
+  }, []);
+
+  useEffect(() => {
+    if (!CAL_LINK) return;
+
+    (async () => {
+      const cal = await getCalApi();
+      cal('ui', {
+        theme: 'dark',
+        layout: 'month_view',
+        hideEventTypeDetails: false,
+        cssVarsPerTheme: {
+          light: { 'cal-brand': '#C1FFA5' },
+          dark: { 'cal-brand': '#C1FFA5' },
+        },
+      });
+    })();
   }, []);
 
   useEffect(() => {
@@ -100,7 +123,7 @@ function ContactSection() {
       </h2>
 
       <p className="contact-reveal hero-paragraph contact-subtext">
-        Open for new projects. Send a message below, or email me directly.
+        Open for new projects. Send a message, book a call, or email me directly.
       </p>
 
       <div className="contact-reveal contact-grid">
@@ -181,6 +204,20 @@ function ContactSection() {
         </form>
 
         <div className="contact-links-row">
+          {CAL_LINK && (
+            <div className="contact-booking">
+              <h3 className="contact-booking-heading">Tired of filling out forms? Book a call instead!</h3>
+              <button
+                type="button"
+                className="contact-cal-btn"
+                data-cal-link={CAL_LINK}
+                data-cal-config='{"layout":"month_view","theme":"dark"}'
+              >
+                Book a call
+              </button>
+            </div>
+          )}
+
           <a href="mailto:davidgortizjr@gmail.com" className="contact-email-link">
             davidgortizjr@gmail.com
           </a>
