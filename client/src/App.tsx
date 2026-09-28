@@ -13,7 +13,11 @@ import pic from './assets/pic.jpg'
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
+  const showLoadingScreen = window.location.hash.length <= 1;
+
   useEffect(() => {
+    if (!showLoadingScreen) return;
+
     document.body.style.overflow = 'hidden';
 
     const animation = gsap.to('.loading-screen', {
@@ -30,7 +34,7 @@ function App() {
       animation.kill();
       document.body.style.overflow = '';
     };
-  }, []);
+  }, [showLoadingScreen]);
 
 
   useEffect(() => {
@@ -41,12 +45,12 @@ function App() {
         opacity: 1,
         y: 0,
         duration: .7,
-        delay: 3,
+        delay: showLoadingScreen ? 3 : 0,
         stagger: 0.3,
         ease: 'power2.out',
       }
     );
-  }, []);
+  }, [showLoadingScreen]);
 
 
   useEffect(() => {
@@ -57,11 +61,11 @@ function App() {
       {
         x: 0,
         duration: 1,
-        delay: 3,
+        delay: showLoadingScreen ? 3 : 0,
         ease: 'power4.inOut',
       }
     );
-  }, []);
+  }, [showLoadingScreen]);
 
   useEffect(() => {
     gsap.fromTo('.tag-projects',
@@ -73,11 +77,11 @@ function App() {
         opacity: 1,
         y: 0,
         duration: 1,
-        delay: 5.5,
+        delay: showLoadingScreen ? 5.5 : 0,
         ease: 'power4.inOut',
       }
     );
-  }, []);
+  }, [showLoadingScreen]);
 
   useEffect(() => {
     gsap.fromTo('.hero-paragraph',
@@ -89,16 +93,16 @@ function App() {
         opacity: 1,
         y: 0,
         duration: 1,
-        delay: 4.5,
+        delay: showLoadingScreen ? 4.5 : 0,
         ease: 'power4.inOut',
       }
     );
-  }, []);
+  }, [showLoadingScreen]);
 
   useEffect(() => {
-    const refresh = setTimeout(() => ScrollTrigger.refresh(), 3200);
+    const refresh = setTimeout(() => ScrollTrigger.refresh(), showLoadingScreen ? 3200 : 0);
     return () => clearTimeout(refresh);
-  }, []);
+  }, [showLoadingScreen]);
 
   useEffect(() => {
     gsap.fromTo('.hero-links p',
@@ -110,15 +114,15 @@ function App() {
         opacity: 1,
         y: 0,
         duration: .5,
-        delay: 5.1,
+        delay: showLoadingScreen ? 5.1 : 0,
         ease: 'power4.inOut',
       }
     );
-  }, []);
+  }, [showLoadingScreen]);
 
   return (
     <>
-      <LoadingScreen />
+      {showLoadingScreen && <LoadingScreen />}
 
       <div className="hero-section w-full lg:min-h-svh grid lg:grid-cols-2" id="hero">
         <div className="w-full min-h-svh lg:min-h-auto p-gutter flex gap-10 flex-col items-start justify-between">
