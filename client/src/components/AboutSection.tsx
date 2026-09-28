@@ -8,7 +8,6 @@ import {
   Code2,
   Container,
   Database,
-  Gauge,
   GitBranch,
   Globe2,
   Hash,
@@ -18,7 +17,6 @@ import {
   Route,
   Send,
   Server,
-  Sparkles,
   Wind,
 } from 'lucide-react';
 
@@ -26,25 +24,31 @@ gsap.registerPlugin(ScrollTrigger);
 
 const skills = [
   {
-    title: 'Development',
+    title: 'Frontend',
     tools: [
       { title: 'React', icon: Atom },
       { title: 'TypeScript', icon: Code2 },
-      { title: 'PHP', icon: Code2 },
-      { title: 'C#', icon: Hash },
-      { title: 'ASP.NET', icon: Globe2 },
-      { title: 'Git', icon: GitBranch },
-      { title: 'Node.js', icon: Server },
-      { title: 'Express', icon: Braces },
+      { title: 'Responsive UI', icon: PanelsTopLeft },
+      { title: 'Tailwind CSS', icon: Wind },
     ],
   },
   {
-    title: 'Data',
+    title: 'Backend & Data',
     tools: [
+      { title: 'PHP', icon: Code2 },
+      { title: 'C#', icon: Hash },
+      { title: 'ASP.NET', icon: Globe2 },
+      { title: 'Node.js', icon: Server },
+      { title: 'Express', icon: Braces },
       { title: 'MSSQL', icon: Database },
       { title: 'MySQL', icon: Database },
       { title: 'PostgreSQL', icon: Database },
       { title: 'Redis', icon: Database },
+    ],
+  },
+  {
+    title: 'API',
+    tools: [
       { title: 'REST APIs', icon: Route },
       { title: 'WebSocket', icon: Radio },
     ],
@@ -53,21 +57,13 @@ const skills = [
     title: 'Tools',
     tools: [
       { title: 'Vite', icon: Wind },
-      { title: 'Tailwind CSS', icon: Wind },
       { title: 'GitHub', icon: GitBranch },
       { title: 'Azure DevOps', icon: CloudCog },
       { title: 'Figma', icon: Palette },
       { title: 'Postman', icon: Send },
       { title: 'VS Code', icon: Code2 },
       { title: 'Docker', icon: Container },
-    ],
-  },
-  {
-    title: 'Craft',
-    tools: [
-      { title: 'GSAP animation', icon: Sparkles },
-      { title: 'Responsive UI', icon: PanelsTopLeft },
-      { title: 'Performance', icon: Gauge },
+      { title: 'Git', icon: GitBranch },
     ],
   },
 ];
@@ -121,37 +117,41 @@ function AboutSection() {
       </p>
 
       <div className="about-grid">
-        <h2 className="about-heading text-fluid-3xl text-white font-bold">
-          Software engineer building software people actually enjoy using.
-        </h2>
+        <div className="about-intro">
+          <h2 className="about-heading text-fluid-3xl text-white font-bold mb-12">
+            Software engineer building software people actually enjoy using.
+          </h2>
 
-        <div className="about-copy">
-          <p className="about-paragraph">
-            I'm David, a software engineer who enjoys turning ideas into
-            reliable, well-crafted software. My work spans full-stack development, from
-            database design to the small interface details that make a product feel
-            considered.
-          </p>
-          <p className="about-paragraph">
-            I care about getting the fundamentals right first, then layering on the
-            motion and polish that make an interface feel alive.
-          </p>
-
-          <div className="skills-grid">
-            {skills.map((skill) => (
-              <div className="skill-card" key={skill.title}>
-                <h3>{skill.title}</h3>
-                <div className="tools-grid" aria-label={`${skill.title} skills`}>
-                  {skill.tools.map(({ title, icon: Icon }) => (
-                    <span className="tool-icon" key={title} tabIndex={0} aria-label={title}>
-                      <Icon size={20} strokeWidth={1.75} aria-hidden="true" />
-                      <span className="tool-tooltip" role="tooltip">{title}</span>
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
+          <div className="about-copy">
+            <p className="about-paragraph">
+              I'm David, a software engineer who enjoys turning ideas into
+              reliable, well-crafted software. My work spans full-stack development, from
+              database design to the small interface details that make a product feel
+              considered.
+            </p>
+            <p className="about-paragraph">
+              I care about getting the fundamentals right first, then layering on the
+              motion and polish that make an interface feel alive.
+            </p>
           </div>
+        </div>
+
+        <div className="skills-grid">
+          {skills.map((skill) => (
+            <div className="skill-card" key={skill.title}>
+              <h3>{skill.title}</h3>
+              <div className="tools-grid" aria-label={`${skill.title} skills`}>
+                {skill.tools.map(({ title, icon: Icon }) => (
+                  <span className="tool-item" key={title} tabIndex={0} aria-label={title}>
+                    <span className="tool-icon">
+                      <Icon size={20} strokeWidth={1.75} aria-hidden="true" />
+                    </span>
+                    <span className="tool-label">{title}</span>
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
