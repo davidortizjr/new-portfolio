@@ -9,7 +9,7 @@ function LoadingScreen() {
     useEffect(() => {
         const letters = document.querySelectorAll('.loading-letter');
 
-        gsap.fromTo(letters, { opacity: 0 }, { opacity: 1, duration: 1, stagger: 0.5 });
+        gsap.fromTo(letters, { opacity: 0 }, { opacity: 1, duration: .5, stagger: 0.2 });
     }, []);
 
     return (

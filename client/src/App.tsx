@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './App.css'
 import LoadingScreen from './components/LoadingScreen'
 import ProjectsSection from './components/ProjectsSection'
+import ExperienceSection from './components/ExperienceSection'
 import AboutSection from './components/AboutSection'
 import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
@@ -23,7 +24,7 @@ function App() {
     const animation = gsap.to('.loading-screen', {
       y: '-100%',
       duration: 1,
-      delay: 2,
+      delay: 1,
       ease: 'power4.inOut',
       onComplete: () => {
         document.body.style.overflow = '';
@@ -44,9 +45,9 @@ function App() {
       {
         opacity: 1,
         y: 0,
-        duration: .7,
-        delay: showLoadingScreen ? 3 : 0,
-        stagger: 0.3,
+        duration: .5,
+        delay: showLoadingScreen ? 2 : 0,
+        stagger: 0.2,
         ease: 'power2.out',
       }
     );
@@ -60,8 +61,8 @@ function App() {
       },
       {
         x: 0,
-        duration: 1,
-        delay: showLoadingScreen ? 3 : 0,
+        duration: .5,
+        delay: showLoadingScreen ? 2 : 0,
         ease: 'power4.inOut',
       }
     );
@@ -76,8 +77,8 @@ function App() {
       {
         opacity: 1,
         y: 0,
-        duration: 1,
-        delay: showLoadingScreen ? 5.5 : 0,
+        duration: .7,
+        delay: showLoadingScreen ? 3.5 : 0,
         ease: 'power4.inOut',
       }
     );
@@ -93,7 +94,7 @@ function App() {
         opacity: 1,
         y: 0,
         duration: 1,
-        delay: showLoadingScreen ? 4.5 : 0,
+        delay: showLoadingScreen ? 3 : 0,
         ease: 'power4.inOut',
       }
     );
@@ -114,7 +115,7 @@ function App() {
         opacity: 1,
         y: 0,
         duration: .5,
-        delay: showLoadingScreen ? 5.1 : 0,
+        delay: showLoadingScreen ? 3.5 : 0,
         ease: 'power4.inOut',
       }
     );
@@ -183,6 +184,7 @@ function App() {
       </div>
 
       <ProjectsSection />
+      <ExperienceSection />
       <AboutSection />
       <ContactSection />
       <Footer />
