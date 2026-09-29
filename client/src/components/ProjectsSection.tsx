@@ -123,9 +123,29 @@ function ProjectsSection() {
               rel="noopener noreferrer"
               className="project-row-link"
             >
-              <span className="project-row-index">{project.index}</span>
-              <span className="project-row-title">{project.title}</span>
-              <span className="project-row-category">{project.category}</span>
+              <span
+                className="project-row-visual"
+                aria-hidden="true"
+              >
+                <img src={project.image} alt="" className="project-row-image" />
+                <span className="project-row-index">{project.index}</span>
+              </span>
+
+              <span className="project-row-copy">
+                <span className="project-row-topline">
+                  <span className="project-row-tag">Featured</span>
+                  <span className="project-row-category">{project.category}</span>
+                </span>
+                <span className="project-row-title">{project.title}</span>
+                <span className="project-row-stack" aria-label={`Tech stack for ${project.title}`}>
+                  {project.techStack.map((item) => (
+                    <span key={item} className="project-row-stack-item">
+                      {item}
+                    </span>
+                  ))}
+                </span>
+              </span>
+
               <span className="project-row-arrow" aria-hidden="true">
                 &#8594;
               </span>
@@ -136,11 +156,8 @@ function ProjectsSection() {
 
       <div className="project-preview" ref={previewRef} aria-hidden="true">
         {activeProject && (
-          <div
-            className="project-preview-card"
-            style={{ backgroundColor: activeProject.color }}
-          >
-            <span>{activeProject.title}</span>
+          <div className="project-preview-card">
+            <img src={activeProject.image} alt={activeProject.title} className="project-preview-image" />
           </div>
         )}
       </div>

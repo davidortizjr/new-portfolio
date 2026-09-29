@@ -1,10 +1,18 @@
+import boardbrewImage from '../assets/boardbrew.png';
+import gentryImage from '../assets/gentry.png';
+import flashyImage from '../assets/flashy.png';
+import ironforgeImage from '../assets/iron-forge.png';
+import dwenasImage from '../assets/dwenas.png';
+import curatorImage from '../assets/curator.png';
+
 export type Project = {
   id: string;
   index: string;
   title: string;
   category: string;
   href: string;
-  color: string;
+  image: string;
+  techStack: string[];
 };
 
 export const projects: Project[] = [
@@ -14,7 +22,8 @@ export const projects: Project[] = [
     title: 'BoardBrew',
     category: 'Café & board game reservation platform',
     href: 'https://boardbrew.vercel.app/',
-    color: '#C1FFA5',
+    image: boardbrewImage,
+    techStack: ['JavaScript', 'PHP', 'MySQL'],
   },
   {
     id: 'gentry',
@@ -22,38 +31,43 @@ export const projects: Project[] = [
     title: 'Gentry Timepieces',
     category: 'Luxury watch retailer website',
     href: 'https://gentry-timepieces.vercel.app/',
-    color: '#E7C77A',
+    image: gentryImage,
+    techStack: ['React', 'TypeScript', 'GSAP', 'Tailwind'],
   },
   {
     id: 'flashy',
     index: '03',
     title: 'Flashy',
-    category: 'Web application',
+    category: 'AI powered flashcard generator web application',
     href: 'https://flashy-virid.vercel.app/',
-    color: '#7AC1E7',
+    image: flashyImage,
+    techStack: ['Node.js', 'Express', 'PostgreSQL', 'Neon', 'Tailwind'],
   },
   {
     id: 'ironforge',
     index: '04',
     title: 'Ironforge',
-    category: 'Web application',
+    category: 'Gym booking and management web application',
     href: 'https://iron-forge-nine.vercel.app/',
-    color: '#E77A7A',
+    image: ironforgeImage,
+    techStack: ['Node.js', 'Express', 'PostgreSQL', 'Neon', 'Tailwind'],
   },
   {
     id: 'dwenas',
     index: '05',
     title: 'Dwenas',
-    category: 'Web application',
+    category: 'Café website with reservation',
     href: 'https://dwenas.vercel.app/',
-    color: '#B57AE7',
+    image: dwenasImage,
+    techStack: ['React', 'TypeScript', 'Tailwind'],
   },
   {
     id: 'curator',
     index: '06',
     title: 'Curator',
-    category: 'Web application',
+    category: 'Boutique design agency landing page',
     href: 'https://curator-alpha.vercel.app/',
-    color: '#7AE7BB',
+    image: curatorImage,
+    techStack: ['React', 'TypeScript', 'Tailwind'],
   },
 ];
